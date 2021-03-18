@@ -1,0 +1,21 @@
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  vertical-align: center;
+  text-align: center;
+}
+.headerColumn {
+  background-color: lightblue;
+}
+
+.errorSection {
+  font-size: small;
+  color: red;
+  font-style: italic;
+}
+.errorSection2 {
+  font-size: small;
+  color: green;
+  font-style: italic;
+}
+

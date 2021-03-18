@@ -1,0 +1,48 @@
+<!--<div>-->
+<!--  <h1> Item List </h1>-->
+<!--  <ul>-->
+<!--    <li *ngFor="let item of itemList">{{item}}</li>-->
+<!--  </ul>-->
+<!--  <button type="button" class="btn btn-primary" (click)="openModalWithComponent()">Add New Item</button>-->
+<!--</div>-->
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Контактная книга</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div style="width: 100%;">
+        <button type="button" class="btn btn-primary" (click)="openModalWithComponent(null)">Новый контакт</button>
+      </div>
+      <div style="width: 100%; padding-top: 10px;">
+        <table style="width:100%">
+          <tr>
+            <th class="headerColumn">id</th>
+            <th class="headerColumn">Имя</th>
+            <th class="headerColumn">Фамилия</th>
+            <th class="headerColumn">Телефон</th>
+            <th class="headerColumn"></th>
+          </tr>
+          <tr *ngFor="let contactBook of contactBooks; let i = index">
+            <td>{{contactBook.id}}</td>
+            <td>{{contactBook.firstName}}</td>
+            <td>{{contactBook.lastName}}</td>
+            <td>{{contactBook.phone}}</td>
+            <td  style="width:250px; text-align: center" >
+              <button type="button" class="btn btn-outline-secondary btn-sm" (click)="editeContact(contactBook)">Редактировать</button>
+              <button style="margin-left: 5px;" type="button" class="btn btn-outline-secondary btn-sm" (click)="deleteContact(contactBook.id)">Удалить</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div style="width: 100%; padding-top: 10px;">
+        <div *ngIf="isHowInfo" class="errorSection">{{isHowInfoMsg}}</div>
+        <div *ngIf="isHowInfo2" class="errorSection2">{{isHowInfoMsg2}}</div>
+      </div>
+    </div>
+  </div>
+
+</div>

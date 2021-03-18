@@ -1,0 +1,47 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Контактная книга</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">×</span>
+  </button>
+</div>
+<div class="modal-body">
+  <h4 *ngIf="!list[0].contact">Новый контакт</h4>
+  <h4 *ngIf="list[0].contact">Редактирование контакта id: {{list[0].contact.id}}</h4>
+  <form [formGroup]="itemform" (ngSubmit)="saveToList(itemform)">
+    <div class="form-group">
+      <label
+        for="firstnameid">Имя</label>
+      <input formControlName="firstName" id="firstnameid" type="text" class="form-control" >
+      <div
+        *ngIf="itemform.get('firstName').invalid && clickOnCancelBtn === false
+          && (itemform.get('firstName').dirty || itemform.get('firstName').touched)"
+        class="alert alert-danger">
+        <div *ngIf="itemform.get('firstName').errors.required">
+          Необходимо указать имя.
+        </div>
+       </div>
+    </div>
+    <div class="form-group">
+      <label
+        for="lastnameid">Фамилия</label>
+      <input formControlName="lastName" id="lastnameid" type="text" class="form-control" >
+      <div
+        *ngIf="itemform.get('lastName').invalid && clickOnCancelBtn === false
+          && (itemform.get('lastName').dirty || itemform.get('lastName').touched)"
+        class="alert alert-danger">
+        <div *ngIf="itemform.get('lastName').errors.required">
+          Необходимо указать фамалию.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label
+        for="phoneid">Телефон</label>
+      <input formControlName="phone" mask="(000) 000 00 00" [showMaskTyped]="true" id="phoneid" type="text" class="form-control" placeholder="(999) 999-9999" >
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" [disabled]="itemform.invalid || itemform.pending"  (click)="saveContact()" >Save</button>
+  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Close</button>
+</div>
