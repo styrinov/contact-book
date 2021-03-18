@@ -7,21 +7,11 @@ declare var $: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements OnInit, AfterViewInit  {
+export class AppComponent  implements OnInit {
   title = 'contact-book';
 
   ngOnInit(): void {
-    // tslint:disable-next-line:only-arrow-functions
-    // $('button').click(function() {
-    //   alert('Wass up!');
-    // });
-
-    $('#inputmaskid').inputmask('(999) 999-9999');
   }
 
-  // tslint:disable-next-line:typedef
-  ngAfterViewInit() {
-
-  }
 
 }
