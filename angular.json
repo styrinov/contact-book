@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "contact-book"
+    }
+  },
+  "defaultProject": "contact-book",
+  "cli": {
+    "analytics": "4dd86574-3070-4795-a39d-f96997e44914"
+  }
 }
